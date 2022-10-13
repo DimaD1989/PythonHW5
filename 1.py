@@ -20,53 +20,6 @@
 # Создайте программу для игры в ""Крестики-нолики"".[]
 # Крестики-нолики
 
-# def itput_user(player):                                                         # создаем функцию для коректности ввода пользователя
-#     valid = False
-#     while not valid:                                                            # меняет результат, если не верно или наоборот
-#         player_question = input("Куда поставим: " + player + "? ")              # задаем вопрос пользователю о +
-#         try: 
-#             player_question = int(player_question)                                  
-#         except:
-#          print("Некорректный ввод. Вы уверены, что ввели число?")               #  обработка корректности ввода
-#          continue   
-#         if player_question >=1 and player_question <= 9:
-#             if(str(board[player_question - 1]) not in 'XO'):
-#                 board[player_question - 1]= player
-#             else:
-#                 print("Эта клетка  занята!")                                  
-#         else:
-#             print("Некорректный ввод. Введите число от 1 до 9.")
-
-# def check_win(board):                                                          # функция проверки игрового поля, проверяет, выиграл ли игрок
-#     win_coord = ((0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6))  # кортеж выйгрышных кобминации  
-#     for each in win_coord:                                                    # создаем цикл
-#        if board[each[0]] == board[each[1]] == board[each[2]]:                 # 
-#           return board[each[0]]
-#        return False
-
-# def main(board):                                                              # основная функция игры, которая будет запускать все ранее описанные функции. Данная функция запускает и управляет игровым процессом.
-#     count = 0                                                                 # счетчик
-#     win = False                                                               # переменная вин
-#     while not win:                                                            # цикл 
-#         draw_board(board)
-#         if count % 2 == 0:
-#            input_user("X")
-#         else:
-#            input_user("O")
-#         count += 1
-#         if count > 4:
-#            tmp = check_win(board)
-#            if tmp:
-#               print(tmp, "выиграл!")
-#               win = True
-#               break
-#         if count == 9:
-#             print("Ничья!")
-#             break
-#     draw_board(board)
-# main(board)
-
-# input("Нажмите Enter для выхода!")
 print("*" * 10, " Игра Крестики-нолики  ", "*" * 10)
 
 board = list(range(1,10))                                                           #cоздаем список,для создания поля
