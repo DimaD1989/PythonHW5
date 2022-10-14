@@ -13,10 +13,148 @@
 
 
 # Создайте программу для игры с конфетами человек против человека.
-# Условие задачи: На столе лежит 2021 конфета. Играют два игрока делая ход друг после друга. Первый ход определяется жеребьёвкой. За один ход можно забрать не более чем 28 конфет. Все конфеты оппонента достаются сделавшему последний ход. Сколько конфет нужно взять первому игроку, чтобы забрать все конфеты у своего конкурента?
+# Условие задачи: На столе лежит 2021 конфета. Играют два игрока делая ход друг после друга. 
+# Первый ход определяется жеребьёвкой. За один ход можно забрать не более чем 28 конфет. 
+# Все конфеты оппонента достаются сделавшему последний ход. Сколько конфет нужно взять первому игроку, чтобы забрать все конфеты у своего конкурента?
 # a) Добавьте игру против бота
 # b) Подумайте как наделить бота ""интеллектом""
 
+# from random import randint
+
+# def input_dataaa(name):                                                                              # создаем функцию о подсчете конфет
+#     x = int(input(f"{name}, Введите количество конфет от 1 до 28: "))                               # заводим переменную х,для подсчеиа конфет. целочистенную
+#     while x < 1 or x > 28:                                                                          # запускаем цикл, для корректности ввода конфет
+#         x = int(input(f"{name}, Введите корректное количество конфет: "))                           
+#     return x
+
+
+# def p_print(name, k, count, value):                                                                 # заводим функцию для вывода информации на экран о игроках, конфетах. Счетчик конфет. Количество конфет.
+#     print(f"Ходил {name}, он взял {k}, теперь у него {count}. Осталось на столе {value} конфет.")
+
+# player1 = input("Введите имя первого игрока: ")
+# player2 = input("Введите имя второго игрока: ")
+# value = int(input("Введите количество конфет на столе: "))
+# flag = randint(0,2) # флаг очередности, с применением функции получения 'случайных ' чисел от 0 до 2. для определения хода
+# if flag:
+#     print(f"Первый ходит {player1}")
+# else:
+#     print(f"Первый ходит {player2}")
+
+# count1 = 0  #
+# count2 = 0  # счетчики для подсчета ходов
+
+# while value > 28:  # цикл, взятия конфет до 28 штук(не более)
+#     if flag:
+#         k = input_dataaa(player1) # вводится переменная для игрока один
+#         count1 += k # счетчик кодов
+#         value -= k # счетчик уменьшения конфет
+#         flag = False # булевая функция
+#         p_print(player1, k, count1, value) # вывод инфо по 1 игроку 
+#     else:
+#         k = input_dataaa(player2) # все по второму
+#         count2 += k
+#         value -= k
+#         flag = True
+#         p_print(player2, k, count2, value)
+
+# if flag:
+#     print(f"Выиграл {player1}")
+# else:
+#     print(f"Выиграл {player2}")
+
+# вариант человек против бота:
+# from random import randint
+
+# def input_dataa(name):
+#     x = int(input(f"{name}, введите количество конфет от 1 до 28: "))
+#     while x < 1 or x > 28:
+#         x = int(input(f"{name}, введите корректное количество конфет: "))
+#     return x
+
+
+# def p_print(name, k, count, value):
+#     print(f"Ходил {name}, он взял {k}, теперь у него {count}. Осталось на столе {value} конфет.")
+
+# player1 = input("Введите имя первого игрока: ")
+# player2 = "Bot"
+# value = int(input("Введите количество конфет на столе: "))
+# flag = randint(0,2) # флаг очередности
+# if flag:
+#     print(f"Первый ходит {player1}")
+# else:
+#     print(f"Первый ходит {player2}")
+
+# count1 = 0 
+# count2 = 0
+
+# while value > 28:
+#     if flag:
+#         k = input_dataa(player1)
+#         count1 += k
+#         value -= k
+#         flag = False
+#         p_print(player1, k, count1, value)
+#     else:
+#         k = randint(1,29)
+#         count2 += k
+#         value -= k
+#         flag = True
+#         p_print(player2, k, count2, value)
+
+# if flag:
+#     print(f"Выиграл {player1}")
+# else:
+#     print(f"Выиграл {player2}")
+
+# from random import randint
+
+# def input_data(name): 
+#     x = int(input(f"{name}, введите количество конфет, которое возьмете от 1 до 28: "))
+#     while x < 1 or x > 28:
+#         x = int(input(f"{name}, введите корректное количество конфет: "))
+#     return x
+
+
+# def p_print(name, k, count, value):
+#     print(f"Ходил {name}, он взял {k}, теперь у него {count}. Осталось на столе {value} конфет.")
+
+
+# def bot_calc(value):  # функция для интелекта бота
+#     k = randint(1,29) # вызов  генератора случайных чисел 0от 1 до 29, не включая 29
+#     while value-k <= 28 and value > 29: # условие пока кол-во конфет - взял <= 28 и одновременно кол-во конфет до 29, не включая
+#         k = randint(1,29) # к 0т 1 до 29,не включая
+#     return k
+
+# player1 = input("Введите имя первого игрока: ")
+# player2 = "Bot"
+# value = int(input("Введите количество конфет на столе: "))
+# flag = randint(0,2) # флаг очередности
+# if flag:
+#     print(f"Первый ходит {player1}")
+# else:
+#     print(f"Первый ходит {player2}")
+
+# count1 = 0 
+# count2 = 0
+
+# while value > 28:
+#     if flag:
+#         k = input_data(player1)
+#         count1 += k
+#         value -= k
+#         flag = False
+#         p_print(player1, k, count1, value)
+#     else:
+#         k = bot_calc(value)
+#         count2 += k
+#         value -= k
+#         flag = True
+#         p_print(player2, k, count2, value)
+
+# if flag:
+#     print(f"Выиграл {player1}")
+# else:
+#     print(f"Выиграл {player2}")
 # Создайте программу для игры в ""Крестики-нолики"".[]
 # Крестики-нолики
 
